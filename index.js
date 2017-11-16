@@ -4,7 +4,7 @@ var app = express();
 
 const { Pool } = require('pg');
 var pool = new Pool({
-	database: 'process.env.DATABASE_URL',
+	connectionString: 'process.env.DATABASE_URL',
 });
 pool.on('error', (err, client) => {
 	console.error('Unexpected error on idle client', err);
