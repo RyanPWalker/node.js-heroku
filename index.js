@@ -2,14 +2,12 @@ var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
 
-const { Pool } = require('pg');
-var pool = new Pool({
-	connectionString: 'process.env.DATABASE_URL',
+const { Client } = require('pg');
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
 });
-pool.on('error', (err, client) => {
-	console.error('Unexpected error on idle client', err);
-	process.exit(-1);
-})
+client.connect();
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -28,15 +26,13 @@ app.get('/postal', function(request, response) {
 });
 
 app.get('/db', function (request, response) {
-	pool.connect((err, client, done) => {
-		if (err) throw err;
-		client.query('SELECT * FROM users', [1], (err, result) => {
-			done();
-			if (err)
-				{ console.error(err); response.send("Error " + err); }
-			else
-				{ response.render('pages/db', {results: result.rows} ); }
-		});
+	client.query('SELECT * FROM users', (err, result) => {
+		done();
+		if (err)
+			{ console.error(err); response.send("Error " + err); }
+		else
+			{ response.render('pages/db', {results: result.rows} ); }
+		client.end();
 	});
 });
 
