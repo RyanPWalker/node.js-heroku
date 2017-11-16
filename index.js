@@ -21,7 +21,7 @@ app.get('/postal', function(request, response) {
 });
 
 app.get('/db', function (request, response) {
-  pool.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pool.connect(function(err, client, done) {
     client.query('SELECT * FROM users', function(err, result) {
       done();
       if (err)
