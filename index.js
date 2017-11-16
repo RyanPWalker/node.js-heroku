@@ -27,7 +27,6 @@ app.get('/postal', function(request, response) {
 
 app.get('/db', function (request, response) {
 	client.query('SELECT * FROM users', (err, result) => {
-		done();
 		if (err)
 			{ console.error(err); response.send("Error " + err); }
 		else
