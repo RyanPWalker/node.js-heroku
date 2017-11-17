@@ -17,6 +17,7 @@
     <h1>Welcome to my node server!</h1>
     <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
     <a type="button" class="btn btn-lg btn-default" href="#"><span class="glyphicon glyphicon-flash"></span> Good Turn project</a>
+    <br> <br> <br>
     <img id="turtle1" src="./images/cool-turtle.png"></img>
     <img id="turtle2" src="./images/cool-turtle.png"></img>
     <img id="turtle3" src="./images/cool-turtle.png"></img>
@@ -28,6 +29,8 @@
 
 <script>
   $(() => { 
+    // divname must be in quotes
+    // window width - 75 because it goes past the screen a bit
     moveTurtle($(window).width() - 75, 'turtle1', 2);
     moveTurtle($(window).width() - 75, 'turtle2', 5);
     moveTurtle($(window).width() - 75, 'turtle3', 10);
