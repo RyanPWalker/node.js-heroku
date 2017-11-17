@@ -25,3 +25,38 @@
     .jumbotron .lang-logo img {
       max-width: 100%; }
 
+#box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#turtle1 {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+}
+
+#turtle2 {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+}
+
+#turtle3 {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+}
+
+#turtle4 {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+}
+
+#turtle5 {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+}

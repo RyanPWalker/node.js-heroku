@@ -2,7 +2,7 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
-  <script src="moveTurtle.js"></script>
+  <script src="./scripts/moveTurtle.js"></script>
 </head>
 
 <body>
@@ -10,18 +10,31 @@
   <% include ../partials/nav.ejs %>
 
 <div class="jumbotron text-center">
-  <div class="container">
+  <div id="box">
     <a href="/" class="lang-logo">
       <img src="/lang-logo.png">
     </a>
-    <h1>Getting Started with Node on Heroku v1.0 dev branch</h1>
+    <h1>Welcome to my node server!</h1>
     <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started with Node</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-    <img id="animateTurtle" src="../images/cool-turtle.png"></img>
+    <a type="button" class="btn btn-lg btn-default" href="#"><span class="glyphicon glyphicon-flash"></span> Good Turn project</a>
+    <img id="turtle1" src="./images/cool-turtle.png"></img>
+    <img id="turtle2" src="./images/cool-turtle.png"></img>
+    <img id="turtle3" src="./images/cool-turtle.png"></img>
+    <img id="turtle4" src="./images/cool-turtle.png"></img>
+    <img id="turtle5" src="./images/cool-turtle.png"></img>
   </div>
 </div>
 
+
+<script>
+  $(() => { 
+    moveTurtle($(window).width() - 75, 'turtle1', 2);
+    moveTurtle($(window).width() - 75, 'turtle2', 5);
+    moveTurtle($(window).width() - 75, 'turtle3', 10);
+    moveTurtle($(window).width() - 75, 'turtle4', 20);
+    moveTurtle($(window).width() - 75, 'turtle5', 50);
+  })
+</script>
 
 </body>
 </html>
