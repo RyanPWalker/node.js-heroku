@@ -27,6 +27,10 @@ app.get('/', function(request, response) {
 	response.render('pages/index');
 });
 
+app.get('/goodturn', function(request, response) {
+	response.render('pages/goodturn');
+});
+
 app.get('/postal', function(request, response) {
 	response.render('pages/postal');
 });
