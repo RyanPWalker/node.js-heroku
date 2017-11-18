@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/postalheader.ejs %>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+<div class="container">
+  <div class="center_div">
+    <form class="postalForm" action="/postalprice">
+      <h2 style="color: white">Postal Calculator</h2>
+      <div class="center_div" style="width:100%">
+        <h3>Submitted: </h3>
+        <input type="text" class="form-control" value="<%= type %> at <%= weight %>oz for <%= answer %>" disabled>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+</body>
+</html>

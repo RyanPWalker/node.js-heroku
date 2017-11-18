@@ -2,6 +2,12 @@ var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
 
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
 const { Client } = require('pg');
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
@@ -18,11 +24,15 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-	response.render('pages/index')
+	response.render('pages/index');
 });
 
 app.get('/postal', function(request, response) {
-	response.render('pages/postal')
+	response.render('pages/postal');
+});
+
+app.post('/postalprice', function(request, response) {
+	response.render('pages/postalprice', {weight: request.body.weight, type: request.body.type, answer: request.body.answer});
 });
 
 app.get('/db', function (request, response) {
