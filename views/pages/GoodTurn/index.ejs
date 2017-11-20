@@ -1,11 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Good Turn</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src="./gps.js"></script>
+		<% include ../../partials/goodturnheader.ejs %>
+		<script src="./scripts/gps.js"></script>
 		<style type="text/css">
 			h4 {
 				margin: 1em 0 0 0;
@@ -13,7 +10,6 @@
 		</style>
 	</head>
 	<body>
-
 		<!-- Header -->
 			<section id="header">
 				<header>
@@ -48,10 +44,12 @@
 
 						<!-- One -->
 							<section id="one">
-								<img src="./images/logo.png" style="display: block; margin: 0 auto; height: 150px; width: 500px">
-								<header class="major">
-									<h2 style="display: block; margin: 0 auto; text-align: center;">"Do your Good Turn today!"</h2>
-								</header>
+								<div class="logoBackground">
+									<img src="./images/logo.png" style="display: block; margin: 0 auto; height: 150px; width: 500px">
+									<header class="major">
+										<h2 style="display: block; margin: 0 auto; text-align: center;">"Do your Good Turn today!"</h2>
+									</header>
+								</div>
 								<div class="container">
 									<h3>Help different people (Feature Coming Soon- in development!)</h3>
 									<p>Browse below to see people close to you who are in need of your skills</p>

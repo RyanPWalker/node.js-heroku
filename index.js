@@ -31,6 +31,22 @@ app.get('/goodturn', function(request, response) {
 	response.render('pages/goodturn');
 });
 
+app.get('/goodturn/signin', function(request, response) {
+	response.render('pages/goodturn/signin');
+});
+
+app.get('/goodturn/createprofile', function(request, response) {
+	response.render('pages/goodturn/createprofile');
+});
+
+app.get('/goodturn/settings', function(request, response) {
+	response.render('pages/goodturn/settings');
+});
+
+app.get('/goodturn/confirmation', function(request, response) {
+	response.render('pages/goodturn/confirmation');
+});
+
 app.get('/postal', function(request, response) {
 	response.render('pages/postal');
 });
