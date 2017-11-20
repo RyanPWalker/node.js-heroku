@@ -28,7 +28,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/goodturn', function(request, response) {
-	response.render('pages/goodturn/index');
+	response.render('pages/GoodTurn/index.ejs');
 });
 
 app.get('/goodturn/signin', function(request, response) {
