@@ -28,7 +28,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/goodturn', function(request, response) {
-	response.render('pages/GoodTurn/index.ejs');
+	response.render('pages/goodturn/index.ejs');
 });
 
 app.get('/goodturn/signin', function(request, response) {
@@ -53,6 +53,10 @@ app.get('/postal', function(request, response) {
 
 app.post('/postalprice', function(request, response) {
 	response.render('pages/postalprice', {weight: request.body.weight, type: request.body.type, answer: request.body.answer});
+});
+
+app.get('/movies', function(request, response) {
+	response.render('pages/movies');
 });
 
 app.get('/db', function (request, response) {
