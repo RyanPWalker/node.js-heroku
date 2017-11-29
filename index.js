@@ -19,6 +19,7 @@ client.connect();
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/assets'));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -30,6 +31,11 @@ app.get('/', function(request, response) {
 
 app.get('/goodturn', function(request, response) {
 	response.render('pages/goodturn/index');
+});
+
+app.post('/goodturn', function(request, response) {
+	request.body.message == null ? {/* do nothing */} : {/* call dbhandler */};
+	response.render('pages/goodturn/index', {message: request.body.message});
 });
 
 app.get('/goodturn/signin', function(request, response) {

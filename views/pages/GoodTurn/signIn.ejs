@@ -25,15 +25,15 @@
 											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" autofocus /></div>
 											<div class="6u 12u(xsmall)"><input type="text" name="password" id="password" placeholder="Password" /></div>
 											<div >
-												<input type="text" name="latitude" id="latitude" />
-												<input type="text" name="longitude" id="longitude" />
+												<input type="hidden" name="latitude" id="latitude" />
+												<input type="hidden" name="longitude" id="longitude" />
 											</div>
 										</div>
 										<div class="row uniform">
 											<div class="12u">
 												<ul class="actions">
 													<li><input type="submit" class="special" value="Log in!" /></li>
-													<li><input type="button" onclick="location.href='./createProfile.ejs'" value="Create Account" /></li>
+													<li><input type="button" onclick="location.href='/goodturn/createprofile'" value="Create Account" /></li>
 												</ul>
 												<strong style="color:red">Username not found.</strong>
 											</div>
@@ -55,12 +55,12 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollzer.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrollzer.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/skel.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 
 	</body>
 </html>

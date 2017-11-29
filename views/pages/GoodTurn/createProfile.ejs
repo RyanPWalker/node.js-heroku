@@ -29,36 +29,27 @@
 								<img src="./images/banner.jpg" style="display: block; margin: 0 auto; height: 150px; width: 225px">
 								<div class="container">
 									<header class="major">
-										<h2>Create Pearfile</h2>
+										<h2>Create Profile</h2>
 										<p>Fill out the form to set up your <em>free</em> account today!</p>
 										<p>Must be 18 or older.</p>
 									<form method="post" action="./confirmation.php?task=insert" onsubmit="validateForm()">
 										<div class="row uniform">
-											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" required autofocus /></div>
+											<div class="12u"><input type="email" name="email" id="email" placeholder="Email" required /></div>
+											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Full Name" required autofocus /></div>
+											<div class="12u"><input type="password" name="password" id="password" placeholder="Password" min="8" required /></div>
 											<div class="6u 12u(xsmall)">
 													<div class="select-wrapper">
 														<select name="age" id="age">
 															<option value="0">- Select Age -</option>
-															
+															<% for (let i = 0; i < 100; i++) { %>
+															<option value="<%= i %>"><%= i %></option>
+															<% } %>
 														</select>
 													</div>
 												</div>
 										</div>
 										<div class="row uniform">
-											<div class="6u 12u(xsmall)"><input type="text" name="city" id="city" placeholder="HomeTown" /></div>
-											<div class="6u 12u(xsmall)"><input type="text" name="state" id="state" placeholder="State" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="email" name="email" id="email" placeholder="Email" required /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="text" name="factone" id="factone" placeholder="Fun Fact One" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="text" name="facttwo" id="facttwo" placeholder="Fun Fact Two" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="text" name="factthree" id="factthree" placeholder="Fun Fact Three" /></div>
+											
 										</div>
 										<div class="row uniform">
 											<div class="12u">
