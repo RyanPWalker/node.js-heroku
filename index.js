@@ -31,7 +31,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/goodturn', function(request, response) {
-	response.render('pages/goodturn/index', {message: null});
+	response.render('pages/goodturn/index.ejs', {message: null});
 });
 
 app.post('/goodturn', function(request, response) {
