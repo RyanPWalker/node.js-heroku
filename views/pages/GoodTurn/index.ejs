@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<% include ../../partials/goodturnheader.ejs %>
+		<script src="./scripts/AjaxHandler.js"></script>
 		<script src="./scripts/gps.js"></script>
 		<style type="text/css">
 			h4 {
@@ -61,13 +62,12 @@
 									</form>
 									<h3>Help different people (Feature Coming Soon- in development!)</h3>
 									<p>Browse below to see people close to you who are in need of your skills</p>
-									<div class="features">
+									<div class="features" id="posts">
 										<article>
 											<a href="#" class="image"><img src="images/blank.jpg" alt="" /></a>
 											<div class="inner">
 												<h4>Jimbo Smith</h4>
-												<p><%= message %></p>
-												<p></p>
+												<p><%= (message == null) ? {''} : message; %></p>
 											</div>
 										</article>
 										<article>

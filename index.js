@@ -2,9 +2,10 @@ var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
 var session = require('express-session');
+var dbhandler = require('./dbhandler.js');
 
 var bodyParser = require('body-parser')
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
@@ -30,7 +31,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/goodturn', function(request, response) {
-	response.render('pages/goodturn/index');
+	response.render('pages/goodturn/index', {message: null});
 });
 
 app.post('/goodturn', function(request, response) {
@@ -50,8 +51,9 @@ app.get('/goodturn/settings', function(request, response) {
 	response.render('pages/goodturn/settings');
 });
 
-app.get('/goodturn/confirmation', function(request, response) {
-	response.render('pages/goodturn/confirmation');
+app.post('/goodturn/confirmation', function(request, response) {
+	request.body.email == null ? {/* do nothing */} : {/* call dbhandler */};
+	response.render('pages/goodturn/confirmation', {email: request.body.email});
 });
 
 app.get('/postal', function(request, response) {
@@ -67,13 +69,7 @@ app.get('/movies', function(request, response) {
 });
 
 app.get('/db', function (request, response) {
-	client.query('SELECT * FROM users', (err, result) => {
-		if (err)
-			{ console.error(err); response.send("Error " + err); }
-		else
-			{ response.render('pages/db', {results: result.rows} ); }
-		client.end();
-	});
+	dbhandler(request);
 });
 
 app.get('/cool', function(request, response) {
