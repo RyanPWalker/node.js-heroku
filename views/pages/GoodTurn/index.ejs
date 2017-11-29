@@ -22,7 +22,7 @@
 						<li><a href="#one" class="active"><b>Find People</b></a></li>
 						<li><a href="#three"><b>About Me</b></a></li>
 						<li><a href="#four"><b>Contact</b></a></li>
-						<li><a href="./settings.ejs"><b>Settings</b></a></li>
+						<li><a href="./goodturn/settings.ejs"><b>Settings</b></a></li>
 					</ul>
 				</nav>
 				<footer>
@@ -51,9 +51,18 @@
 									</header>
 								</div>
 								<div class="container">
+									<form class="col-md-8" id="messageForm">
+										<div class="form-group">
+											<label id="enter">Enter Message</label>
+											<input class="form-control" id="message"></input>
+											<br />
+											<input type="submit" class="btn btn-primary" value="Send Message" />
+										</div>
+									</form>
 									<h3>Help different people (Feature Coming Soon- in development!)</h3>
 									<p>Browse below to see people close to you who are in need of your skills</p>
 									<div class="features">
+										<div class="col-md-8" id="chat"></div>
 										<article>
 											<a href="#" class="image"><img src="images/blank.jpg" alt="" /></a>
 											<div class="inner">

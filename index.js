@@ -1,6 +1,7 @@
 var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
+var session = require('express-session');
 
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -28,7 +29,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/goodturn', function(request, response) {
-	response.render('pages/goodturn/index.ejs');
+	response.render('pages/goodturn/index');
 });
 
 app.get('/goodturn/signin', function(request, response) {
