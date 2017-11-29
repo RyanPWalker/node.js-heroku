@@ -9,7 +9,7 @@ module.exports = (request) => {
 			if (err)
 				{ console.error(err); response.json("Error " + err); }
 			else
-				{ response.json({result.rows}); }
+				{ response.json(result.rows); }
 			client.end();
 		});
 	}
