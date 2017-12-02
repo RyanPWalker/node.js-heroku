@@ -81,8 +81,8 @@ app.post('/goodturn', function(request, response) {
 	response.render('pages/goodturn/index', {message: request.body.message});
 });
 
-app.get('/goodturn/signin', function(request, response) {
-	response.render('pages/goodturn/signin');
+app.get('/signin', function(request, response) {
+	response.render('pages/signin');
 });
 
 app.get('/goodturn/createprofile', function(request, response) {
