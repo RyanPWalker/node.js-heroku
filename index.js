@@ -1,12 +1,10 @@
-var cool = require('cool-ascii-faces');
-var express = require('express');
-var app = express();
-var session = require('express-session');
-var dbhandler = require('./dbhandler.js');
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
-var path = require ('path');
-var fs = require('fs');
+var cool 			= require('cool-ascii-faces');
+var express 		= require('express');
+var app 				= express();
+var session 		= require('express-session');
+var dbhandler 		= require('./dbhandler.js');
+var loginHandler 	= require('./loginHandler.js');
+var path 			= require ('path');
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());       // to support JSON-encoded bodies
@@ -28,6 +26,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({ secret: 'this-is-a-secret-token', resave: false, saveUninitialized: true, cookie: { maxAge: 60000 }}));
 app.use(logRequest);
+app.use(storeLocation);
 
 // views is directory for all template files
 app.set('views', path.join(__dirname, '/views'));
@@ -38,69 +37,30 @@ app.get('/', function(request, response) {
 	response.render('pages/index');
 });
 
-app.get('/test', function(request, response) {
-	response.render('pages/test');
-});
+app.post('/login', (request, response) => {
 
-app.post('/login', function(request, response) {
-	let username = request.body.username;
-	let password = request.body.password;
-	console.log(username, password);
+	loginHandler(request).then((result) => {
+		email  = request.session.email;
+		online = request.session.online;
 
-   /*bcrypt.hash(password, saltRounds, function(err, hash) {
-   	fs.writeFile("./testdb.txt", hash, function(err) {
-   		if(err) {
-   			return console.log(err);
-   		}
-
-   		console.log("The file was saved!");
-   	}); 
-   });*/
-
-   var hash = fs.readFileSync("./testdb.txt").toString();
-   console.log(hash);
-   bcrypt.compare(password, hash, function(err, res) {
-   	if (err) {
-   		console.log(err);
-   	} else {
-   		console.log("Correct hash? : " + res);
-   	}
+		if (online) {
+			response.json({"success": "true"});
+			console.log('success');
+		} else {
+			response.json('error');
+			console.log('error');
+		}
 	});
-
-	request.session.username = username;
-
-   console.log("Session variable: " + request.session.username);
-
-	if (username) {
-		response.json({"success": "true"});
-		console.log('success');
-	} else {
-		response.json('error');
-		console.log('error');
-	}
 });
 
 app.post('/logout', function(request, response) {
 
-	username = request.session.username;
+	email = request.session.email;
 
-	if (username) {
+	if (email) {
 		request.session.destroy();
-		console.log("Logging out: " + username);
+		console.log("Logging out: " + email);
 		response.json({"success": "true"});
-		console.log('success');
-	} else {
-		response.json({"success": "false"});
-		console.log('error');
-	}
-});
-
-app.get('/getServerTime', verifyLogin, function(request, response) {
-
-	let time = Date.now();
-
-	if (time) {
-		response.json({"success": "true", "time": time});
 		console.log('success');
 	} else {
 		response.json({"success": "false"});
@@ -109,7 +69,11 @@ app.get('/getServerTime', verifyLogin, function(request, response) {
 });
 
 app.get('/goodturn', function(request, response) {
-	response.render('pages/goodturn/index', {message: null});
+	if (request.session.online) {
+		response.render('pages/goodturn');
+	} else {
+		response.render('pages/goodturn/signin');
+	}
 });
 
 app.post('/goodturn', function(request, response) {
@@ -132,6 +96,23 @@ app.get('/goodturn/settings', function(request, response) {
 app.post('/goodturn/confirmation', function(request, response) {
 	request.body.email == null ? {/* do nothing */} : {/* call dbhandler */};
 	response.render('pages/goodturn/confirmation', {email: request.body.email});
+});
+
+app.get('/test', function(request, response) {
+	response.render('pages/test');
+});
+
+app.get('/getServerTime', verifyLogin, function(request, response) {
+
+	let time = Date.now();
+
+	if (time) {
+		response.json({"success": "true", "time": time});
+		console.log('success');
+	} else {
+		response.json({"success": "false"});
+		console.log('error');
+	}
 });
 
 app.get('/postal', function(request, response) {
@@ -163,8 +144,14 @@ function logRequest(request, response, next) {
 	next();
 }
 
+function storeLocation(request, response, next) {
+	console.log("Latitude: " + request.body.latitude);
+	console.log("Longitude: " + request.body.longitude);
+	next();
+}
+
 function verifyLogin(request, response, next) {
-	if (request.session.username) {
+	if (request.session.email) {
 		// login verified
 		next();
 	} else {

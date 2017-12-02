@@ -34,8 +34,9 @@
 													<div class="select-wrapper">
 														<select name="age" id="age">
 															<option value="0"></option>
-															
-															
+															<% for (let i = 0; i < 100; i++) {
+															<option value="<%= i; %>"></option>
+															<% } %>
 														</select>
 													</div>
 												</div>
@@ -46,15 +47,6 @@
 										</div>
 										<div class="row uniform">
 											<div class="12u"><input type="email" name="email" id="email" value="" placeholder="Email" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="text" name="factone" id="factone" value="" placeholder="Fun Fact One" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="text" name="facttwo" id="facttwo" value="" placeholder="Fun Fact Two" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="text" name="factthree" id="factthree" value="" placeholder="Fun Fact Three" /></div>
 										</div>
 										<div class="row uniform">
 											<div class="12u">

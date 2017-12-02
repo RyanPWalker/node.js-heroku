@@ -1,17 +1,22 @@
 function login() {
-  var username = $("#username").val();
+  var email = $("#email").val();
   var password = $("#password").val();
+  var latitude = $("#latitude").val();
+  var longitude = $("#longitude").val();
 
   var params = {
-    username: username,
-    password: password
+    email: email,
+    password: password,
+    latitude: latitude,
+    longitude: longitude
   };
 
   $.post("/login", params, function(result) {
     if (result && result.success) {
       $("#status").text("Successfully logged in.");
+      window.location = './goodturn';
     } else {
-      $("#status").text("Error logging in.");
+      $("#status").html("<strong style='color:red'>Incorrect username/password</strong>");
     }
   });
 }
