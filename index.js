@@ -85,15 +85,15 @@ app.get('/signin', function(request, response) {
 	response.render('pages/signin');
 });
 
-app.get('/goodturn/createprofile', function(request, response) {
+app.get('/createprofile', function(request, response) {
 	response.render('pages/createprofile');
 });
 
-app.get('/goodturn/settings', function(request, response) {
+app.get('/settings', function(request, response) {
 	response.render('pages/settings');
 });
 
-app.post('/goodturn/confirmation', function(request, response) {
+app.post('/confirmation', function(request, response) {
 	request.body.email == null ? {/* do nothing */} : {/* call dbhandler */};
 	response.render('pages/confirmation', {email: request.body.email});
 });
