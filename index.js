@@ -72,30 +72,30 @@ app.get('/goodturn', function(request, response) {
 	if (request.session.online) {
 		response.render('pages/goodturn');
 	} else {
-		response.render('pages/goodturn/signin');
+		response.render('pages/signin');
 	}
 });
 
 app.post('/goodturn', function(request, response) {
 	request.body.message == null ? {/* do nothing */} : {/* call dbhandler */};
-	response.render('pages/goodturn/index', {message: request.body.message});
+	response.render('pages/goodturn', {message: request.body.message});
 });
 
 app.get('/signin', function(request, response) {
-	response.render('pages/signIn.ejs');
+	response.render('pages/signin');
 });
 
 app.get('/goodturn/createprofile', function(request, response) {
-	response.render('pages/goodturn/createprofile');
+	response.render('pages/createprofile');
 });
 
 app.get('/goodturn/settings', function(request, response) {
-	response.render('pages/goodturn/settings');
+	response.render('pages/settings');
 });
 
 app.post('/goodturn/confirmation', function(request, response) {
 	request.body.email == null ? {/* do nothing */} : {/* call dbhandler */};
-	response.render('pages/goodturn/confirmation', {email: request.body.email});
+	response.render('pages/confirmation', {email: request.body.email});
 });
 
 app.get('/test', function(request, response) {
