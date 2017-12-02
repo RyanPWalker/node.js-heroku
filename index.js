@@ -82,7 +82,7 @@ app.post('/goodturn', function(request, response) {
 });
 
 app.get('/signin', function(request, response) {
-	response.render('pages/signin');
+	response.render('pages/signIn.ejs');
 });
 
 app.get('/goodturn/createprofile', function(request, response) {
