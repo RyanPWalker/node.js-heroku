@@ -70,9 +70,9 @@ app.post('/logout', function(request, response) {
 
 app.get('/goodturn', function(request, response) {
 	if (request.session.online) {
-		response.render('pages/goodturn');
+		response.render('pages/goodturn.ejs');
 	} else {
-		response.render('pages/signin');
+		response.render('pages/signin.ejs');
 	}
 });
 
@@ -86,16 +86,16 @@ app.get('/signin', function(request, response) {
 });
 
 app.get('/createprofile', function(request, response) {
-	response.render('pages/createprofile');
+	response.render('pages/createProfile.ejs');
 });
 
 app.get('/settings', function(request, response) {
-	response.render('pages/settings');
+	response.render('pages/settings.ejs');
 });
 
 app.post('/confirmation', function(request, response) {
 	request.body.email == null ? {/* do nothing */} : {/* call dbhandler */};
-	response.render('pages/confirmation', {email: request.body.email});
+	response.render('pages/confirmation.ejs', {email: request.body.email});
 });
 
 app.get('/test', function(request, response) {
