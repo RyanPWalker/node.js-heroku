@@ -7,12 +7,19 @@
 		<% include ../partials/goodturnheader.ejs %>
 		<script type="text/javascript">
 			function validateForm() {
-				x = document.getElementById('age').value;
-				if (isNaN(x) || x < 18) {
-        	alert('Must be 18 or older.');
-        	event.preventDefault();
-        	return false;
-    		}
+				age = document.getElementById('age').value;
+				p1 = document.getElementById('password').value;
+				p2 = document.getElementById('password2').value;
+				if (isNaN(age) || age < 18) {
+		        	alert('Must be 18 or older.');
+		        	event.preventDefault();
+		        	return false;
+	    		}
+	    		if (password !== password2) {
+	    			alert('Passwords do not match');
+	    			event.preventDefault();
+	    			return false;
+	    		}
 			}
 		</script>
 	</head>
@@ -26,7 +33,7 @@
 
 						<!-- One -->
 							<section id="one">
-								<img src="./images/banner.jpg" style="display: block; margin: 0 auto; height: 150px; width: 225px">
+								<img src="../../../images/logo.png" style="display: block; margin: 0 auto; height: 150px; width: 500px">
 								<div class="container">
 									<header class="major">
 										<h2>Create Profile</h2>
@@ -35,8 +42,9 @@
 									<form method="post" action="/goodturn/confirmation" onsubmit="validateForm()">
 										<div class="row uniform">
 											<div class="12u"><input type="email" name="email" id="email" placeholder="Email" required /></div>
-											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Full Name" required autofocus /></div>
+											<div class="12u"><input type="text" name="name" id="name" placeholder="Full Name" required autofocus /></div>
 											<div class="12u"><input type="password" name="password" id="password" placeholder="Password" min="8" required /></div>
+											<div class="12u"><input type="password" name="password2" id="password2" placeholder="Verify Password" min="8" required /></div>
 											<div class="6u 12u(xsmall)">
 													<div class="select-wrapper">
 														<select name="age" id="age">
