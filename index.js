@@ -72,7 +72,7 @@ app.get('/goodturn', function(request, response) {
 	if (request.session.online) {
 		response.render('pages/goodturn');
 	} else {
-		response.render('pages/signin');
+		response.render('pages/login');
 	}
 });
 
@@ -81,8 +81,8 @@ app.post('/goodturn', function(request, response) {
 	response.render('pages/goodturn', {message: request.body.message});
 });
 
-app.get('/signin', function(request, response) {
-	response.render('pages/signin');
+app.get('/login', function(request, response) {
+	response.render('pages/login');
 });
 
 app.get('/createprofile', function(request, response) {
