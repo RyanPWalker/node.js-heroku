@@ -138,7 +138,13 @@ app.get('/movies', function(request, response) {
 });
 
 app.get('/db', function (request, response) {
-	dbhandler(request);
+	client.query('SELECT * FROM users LIMIT 50', (err, result) => {
+		if (err)
+			{ console.error(err); response.json("Error " + err); }
+		else
+			{ response.json(result.rows); }
+		client.end();
+	});
 });
 
 app.get('/cool', function(request, response) {
