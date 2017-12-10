@@ -61,10 +61,10 @@ app.post('/logout', function(request, response) {
 		request.session.destroy();
 		console.log("Logging out: " + email);
 		response.json({"success": "true"});
-		console.log('success');
+		console.log('successfully logged out');
 	} else {
 		response.json({"success": "false"});
-		console.log('error');
+		console.log('error logging out');
 	}
 });
 
@@ -94,8 +94,18 @@ app.get('/settings', function(request, response) {
 });
 
 app.post('/confirmation', function(request, response) {
-	request.body.email == null ? {/* do nothing */} : {/* call dbhandler */};
-	response.render('pages/confirmation', {email: request.body.email});
+	dbhandler(request).then((result) => {
+		email  = request.session.email;
+		online = request.session.online;
+
+		if (online) {
+			response.json({"success": "true"});
+			console.log('success');
+		} else {
+			response.json('error');
+			console.log('error');
+		}
+	});
 });
 
 app.get('/test', function(request, response) {

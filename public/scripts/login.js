@@ -24,9 +24,9 @@ function login() {
 function logout() {
   $.post("/logout", function(result) {
     if (result && result.success) {
-      $("#status").text("Successfully logged out.");
+      window.location = './login';
     } else {
-      $("#status").text("Error logging out.");
+      alert("Error logging out.");
     }
   });
 }
