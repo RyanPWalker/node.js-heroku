@@ -23,8 +23,11 @@ module.exports = (request) => {
 			}
 			else { 
 				var hash = JSON.stringify(result.rows);
-				console.log(hash["password"]);
-				bcrypt.compare(password, hash["password"], function(err, res) {
+				console.log(hash[0].password);
+				console.log(hash[0]);
+				console.log(hash.password);
+				console.log(JSON.parse(hash).password);
+				bcrypt.compare(password, hash, function(err, res) {
 					if (err) {
 						request.session.online = false;
 						console.log("Error comparing database passwords, " + err);
