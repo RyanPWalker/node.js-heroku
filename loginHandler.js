@@ -23,7 +23,7 @@ module.exports = (request) => {
 			}
 			else { 
 				var hash = JSON.stringify(result.rows);
-				var thing = JSON.parse(hash);
+				var thing = JSON.parse(result.rows);
 				// Don't work:
 				//console.log(hash[0].password);
 				//console.log(hash[0]);
