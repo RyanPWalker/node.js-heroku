@@ -98,10 +98,10 @@ app.post('/confirmation', function(request, response) {
 		email  = request.session.email;
 
 		if (email) {
-			response.json({"success": "true"});
+			response.render('pages/confirmation', {email: email});
 			console.log('success');
 		} else {
-			response.json('error');
+			response.json('Error creating account.');
 			console.log('error');
 		}
 	});
