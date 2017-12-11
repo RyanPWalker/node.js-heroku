@@ -22,7 +22,7 @@ module.exports = (request) => {
 				console.error("Error " + err); resolve(); 
 			}
 			else { 
-				var hash = JSON.stringify(result.rows).password;
+				var hash = JSON.stringify(result.rows)['password'];
 				console.log(hash);
 				bcrypt.compare(password, hash, function(err, res) {
 					if (err) {
