@@ -18,7 +18,7 @@ module.exports = (request) => {
 			if (err) {
 				return console.log("Error hashing password, " + err);
 			} else {
-				let queryString = 'INSERT INTO users (date_added, password, email, name, age) VALUES (current_timestamp, ' + hash + ', ' + email + ', ' + name + ', ' + age + ')';
+				let queryString = "INSERT INTO users (date_added, password, email, name, age) VALUES (current_timestamp, '" + hash + "', '" + email + "', '" + name + "', " + age + ")";
 				console.log(queryString);
 				client.query(queryString, (err, result) => {
 					if (err) { 
