@@ -96,9 +96,8 @@ app.get('/settings', function(request, response) {
 app.post('/confirmation', function(request, response) {
 	dbhandler(request).then((result) => {
 		email  = request.session.email;
-		online = request.session.online;
 
-		if (online) {
+		if (email) {
 			response.json({"success": "true"});
 			console.log('success');
 		} else {

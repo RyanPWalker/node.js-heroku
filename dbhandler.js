@@ -13,19 +13,20 @@ module.exports = (request) => {
 		var password 			= request.body.password;
 		var name				= request.body.name;
 		var age					= request.body.age;
-		console.log(email + password + name + age);
 
 		bcrypt.hash(password, saltRounds, function(err, hash) {
 			if (err) {
 				return console.log("Error hashing password, " + err);
 			} else {
-				let queryString = 'INSERT INTO users (date_added, gp_authtoken) VALUES (current_timestamp, ' + hash + ')'
+				let queryString = 'INSERT INTO users (date_added, password, email, name, age) VALUES (current_timestamp, ' + hash + ', ' + email + ', ' + name + ', ' + age + ')';
+				console.log(queryString);
 				client.query(queryString, (err, result) => {
 					if (err) { 
 						console.error('Error inserting: ' + err);
 						resolve();
 					}
 					else { 
+						request.session.email = email;
 						console.log('success inserting!'); 
 						resolve();
 					}
