@@ -1,5 +1,3 @@
-import { json } from '../../../../../../AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/express';
-
 module.exports = (request) => {
 	return new Promise(function(resolve,reject) {
 		const { Client } = require('pg');
