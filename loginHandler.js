@@ -32,7 +32,6 @@ module.exports = (request) => {
 				//console.log(hash[0]);
 				//console.log(hash.password);
 				console.log(hash);
-				console.log(r);
 				bcrypt.compare(password, hash, function(err, res) {
 					if (err) {
 						request.session.online = false;
