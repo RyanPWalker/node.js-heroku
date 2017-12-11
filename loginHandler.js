@@ -1,6 +1,12 @@
 module.exports = (request) => {
 	return new Promise(function(resolve,reject) {
-		var fs 					= require('fs');
+		const { Client } = require('pg');
+		const client = new Client({
+		  connectionString: process.env.DATABASE_URL,
+		  ssl: true,
+		});
+		client.connect();
+		
 		var bcrypt 				= require('bcrypt');
 		const saltRounds 		= 10;
 		var email 				= request.body.email;
@@ -10,34 +16,25 @@ module.exports = (request) => {
 
 		request.session.email = email;
 
-		// we need this for signing up, not logging in
-		/*bcrypt.hash(password, saltRounds, function(err, hash) {
-			if (err) {
-				return console.log("Error hashing password, " + err);
-			} else {
-		   	fs.writeFile("./testdb.txt", hash, function(err) {
-		   		if(err) {
-		   			return console.log(err);
-		   		}
-
-		   		console.log("The file was saved!");
-		   	});
-	   		hashedPassword = hash;
-	   	}
-	   });*/
-
-		var compareHash = fs.readFileSync("./testdb.txt").toString();
-	   console.log(compareHash);
-	   bcrypt.compare(password, compareHash, function(err, res) {
-	   	if (err) {
-	   		request.session.online = false;
-	   		console.log("Error comparing database passwords, " + err);
-	   		resolve();
-	   	} else {
-	   		console.log("Correct hash? : " + res);
-	   		request.session.online = res;
-	   		resolve();
-	   	}
+		let queryString = "SELECT password FROM users where email = '" + email + "')";
+		client.query(queryString, (err, result) => {
+			if (err) { 
+				console.error("Error " + err); response.json("Error " + err); resolve(); 
+			}
+			else { 
+				bcrypt.compare(password, result, function(err, res) {
+					if (err) {
+						request.session.online = false;
+						console.log("Error comparing database passwords, " + err);
+						resolve();
+					} else {
+						console.log("Correct hash? : " + res);
+						request.session.online = res;
+						resolve();
+					}
+				});
+			}
+			client.end();
 		});
 	});
 };
