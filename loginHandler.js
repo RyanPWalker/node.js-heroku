@@ -19,7 +19,7 @@ module.exports = (request) => {
 		let queryString = "SELECT password FROM users where email = '" + email + "')";
 		client.query(queryString, (err, result) => {
 			if (err) { 
-				console.error("Error " + err); response.json("Error " + err); resolve(); 
+				console.error("Error " + err); resolve(); 
 			}
 			else { 
 				bcrypt.compare(password, result, function(err, res) {
