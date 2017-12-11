@@ -24,7 +24,7 @@ module.exports = (request) => {
 			else { 
 				var hash;
 				result.rows.forEach(function(r) {
-					hash = r;
+					hash = r.password;
 				});
 				// Don't work:
 				//var thing = JSON.parse(result.rows);
