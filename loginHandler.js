@@ -22,7 +22,7 @@ module.exports = (request) => {
 				console.error("Error " + err); resolve(); 
 			}
 			else { 
-				bcrypt.compare(password, result, function(err, res) {
+				bcrypt.compare(password, result.toString(), function(err, res) {
 					if (err) {
 						request.session.online = false;
 						console.log("Error comparing database passwords, " + err);
