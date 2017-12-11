@@ -23,6 +23,7 @@ module.exports = (request) => {
 			}
 			else { 
 				var hash = result.password;
+				console.log(hash);
 				bcrypt.compare(password, hash, function(err, res) {
 					if (err) {
 						request.session.online = false;
