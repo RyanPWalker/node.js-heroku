@@ -24,9 +24,9 @@ module.exports = (request) => {
 				console.error("Error " + err); resolve(); 
 			}
 			else { 
-				var jsonobject = JSON.stringify(result.rows);
-				var hash = JSON.parse(jsonobject.password);
-				console.log(jsonobject);
+				var thing = JSON.stringify(result.rows);
+				var hash = JSON.parse(thing.password);
+				console.log(thing);
 				console.log(hash);
 				bcrypt.compare(password, hash, function(err, res) {
 					if (err) {
