@@ -16,7 +16,7 @@ module.exports = (request) => {
 
 		request.session.email = email;
 
-		let queryString = "SELECT password FROM users where email = '" + email + "')";
+		let queryString = "SELECT password FROM users where email = '" + email + "'";
 		client.query(queryString, (err, result) => {
 			if (err) { 
 				console.error("Error " + err); resolve(); 
