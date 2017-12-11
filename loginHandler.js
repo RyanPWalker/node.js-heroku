@@ -1,3 +1,5 @@
+import { json } from '../../../../../../AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/express';
+
 module.exports = (request) => {
 	return new Promise(function(resolve,reject) {
 		const { Client } = require('pg');
@@ -22,7 +24,9 @@ module.exports = (request) => {
 				console.error("Error " + err); resolve(); 
 			}
 			else { 
-				var hash = JSON.parse((JSON.stringify(result.rows)).password);
+				var jsonobject = JSON.stringify(result.rows);
+				var hash = JSON.parse(jsonobject.password);
+				console.log(jsonobject);
 				console.log(hash);
 				bcrypt.compare(password, hash, function(err, res) {
 					if (err) {
