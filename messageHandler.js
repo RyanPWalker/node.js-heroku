@@ -10,6 +10,13 @@ module.exports = (request, action) => {
         if (action == 'post') {
             var message = request.body.message;
             var user_id;
+
+            for (let i = 0; i < message.length(); i++) {
+                if (message[i] == "'") {
+                    message.splice(i, 0, "'");
+                }
+            }
+            
             console.log(message);
 
             email = request.session.email;
@@ -25,10 +32,12 @@ module.exports = (request, action) => {
                         user_id = r.user_id;
                     });
 
+                    console.log(user_id);
+
                     queryString = "INSERT INTO users (description, post_date, user_id) VALUES ('" + message + "', current_timestamp, '" + user_id + "')";
                     client.query(queryString, (err, result) => {
                         if (err) { 
-                            console.error("Error " + err); resolve(); 
+                            console.error("Error inserting, " + err); reject(); 
                         } else { 
                             console.log('Success inserting message');
                             resolve();
