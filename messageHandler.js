@@ -36,7 +36,7 @@ module.exports = (request, action) => {
 
                     console.log(user_id);
 
-                    queryString = "INSERT INTO users (description, post_date, user_id) VALUES ('" + message + "', current_timestamp, '" + user_id + "')";
+                    queryString = "INSERT INTO posts (description, post_date, user_id) VALUES ('" + message + "', current_timestamp, '" + user_id + "')";
                     client.query(queryString, (err, result) => {
                         if (err) { 
                             console.error("Error inserting, " + err); reject(); 
