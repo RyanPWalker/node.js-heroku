@@ -11,12 +11,12 @@ module.exports = (request, action) => {
             var message = request.body.message;
             var user_id;
 
-            for (let i = 0; i < message.length(); i++) {
+            for (let i = 0; i < message.length; i++) {
                 if (message[i] == "'") {
                     message.splice(i, 0, "'");
                 }
             }
-            
+
             console.log(message);
 
             email = request.session.email;
