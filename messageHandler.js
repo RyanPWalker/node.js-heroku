@@ -13,7 +13,7 @@ module.exports = (request, action) => {
 
             for (let i = 0; i < message.length; i++) {
                 if (message[i] === "'") {
-                    message.slice(0, i) + "'" + message.slice(i);
+                    message.substring(0, i) + "'" + message.substring(i, message.length);
                     console.log('slicing' + i);
                 }
             }
