@@ -1,9 +1,10 @@
 var cool 			= require('cool-ascii-faces');
 var express 		= require('express');
-var app 				= express();
+var app 			= express();
 var session 		= require('express-session');
-var dbhandler 		= require('./dbhandler.js');
+var createhandler 	= require('./createhandler.js');
 var loginHandler 	= require('./loginHandler.js');
+var messageHandler  = require('./messageHandler.js');
 var path 			= require ('path');
 
 var bodyParser = require('body-parser')
@@ -77,7 +78,7 @@ app.get('/goodturn', function(request, response) {
 });
 
 app.post('/goodturn', function(request, response) {
-	request.body.message == null ? {/* do nothing */} : {/* call dbhandler */};
+	request.body.message == null ? {/* do nothing */} : {/* call createhandler */};
 	response.render('pages/goodturn', {message: request.body.message});
 });
 
@@ -94,7 +95,7 @@ app.get('/settings', function(request, response) {
 });
 
 app.post('/confirmation', function(request, response) {
-	dbhandler(request).then((result) => {
+	createhandler(request).then((result) => {
 		email  = request.session.email;
 
 		if (email) {
@@ -104,6 +105,20 @@ app.post('/confirmation', function(request, response) {
 			response.json('Error creating account.');
 			console.log('error');
 		}
+	});
+});
+
+app.get('/messages', function(request, response) {
+	messageHandler(request, 'get').then((result) => {
+		if (request.session.online) {
+			response.json(result);
+			console.log('success');
+		} else {
+			response.json('error');
+			console.log('error');
+		}
+		
+		response.end();
 	});
 });
 

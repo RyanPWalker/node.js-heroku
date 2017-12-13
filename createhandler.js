@@ -35,13 +35,5 @@ module.exports = (request) => {
 		
 			}
 		});
-
-		/*client.query('SELECT * FROM posts LIMIT 50', (err, result) => {
-			if (err)
-				{ console.error(err); response.json("Error " + err); }
-			else
-				{ response.json(result.rows); }
-			client.end();
-		});*/
 	});
 };

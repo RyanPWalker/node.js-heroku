@@ -5,13 +5,14 @@
 		<!--<script src="./scripts/AjaxHandler.js"></script>-->
 		<script src="../../scripts/login.js"></script>
 		<script src="../../scripts/gps.js"></script>
+		<script src="../../scripts/messages.js"></script>
 		<style type="text/css">
 			h4 {
 				margin: 1em 0 0 0; 
 			}
 		</style>
 	</head>
-	<body>
+	<body onload="getMessages()">
 		<!-- Header -->
 			<section id="header">
 				<header>
@@ -59,7 +60,8 @@
 											<label id="enter">Enter Message</label>
 											<textarea class="form-control" id="message" name="message"></textarea>
 											<br />
-											<input type="submit" class="btn btn-primary" value="Send Message" />
+											<input type="submit" class="btn btn-primary" onclick="postMessage()" value="Send Message" />
+											<div id="status"></div>
 										</div>
 									</form>
 									<h3>Help different people (Feature Coming Soon- in development!)</h3>

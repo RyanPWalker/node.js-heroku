@@ -3,6 +3,28 @@
 	<head>
 		<% include ../partials/goodturnheader.ejs %>
 		<script type="text/javascript">
+			function validateForm() {
+				age = document.getElementById('age').value;
+				p1 = document.getElementById('password').value;
+				p2 = document.getElementById('password2').value;
+				if (isNaN(age) || age < 18) {
+		        	alert('Must be 18 or older.');
+		        	event.preventDefault();
+		        	return false;
+	    		}
+	    		if (p1 != p2) {
+	    			alert('Passwords do not match');
+	    			event.preventDefault();
+	    			return false;
+				}
+				if (p1.length < 8) {
+					alert('Password must be at least 8 characters long.');
+	    			event.preventDefault();
+	    			return false;
+				}
+			}
+		</script>
+		<script type="text/javascript">
 			function warn() {
 				if (confirm('Are you sure you want to delete your account forever?')) {
 				   location.href='./confirmation.ejs?delete';
@@ -22,24 +44,24 @@
 
 						<!-- One -->
 							<section id="one">
-								<img src="./images/banner.jpg" style="display: block; margin: 0 auto; height: 150px; width: 225px">
+								<img src="../../../images/logo.png" style="display: block; margin: 0 auto; height: 500px; width: 225px">
 								<div class="container">
 									<header class="major">
-										<h2>Edit Pearfile</h2>
+										<h2>Edit Profile</h2>
 										<p>Make the adjustments, then click <em>Submit</em> to save.</p>
 									<form method="post" action="./confirmation.ejs?action=update">
 										<div class="row uniform">
 											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" value="" placeholder="Full Name" autofocus /></div>
 											<div class="6u 12u(xsmall)">
-													<div class="select-wrapper">
-														<select name="age" id="age">
-															<option value="0"></option>
-															<% for (let i = 0; i < 100; i++) { %>
-															<option value="<%= i; %>"></option>
-															<% } %>
-														</select>
-													</div>
+												<div class="select-wrapper">
+													<select name="age" id="age">
+														<option value="0"></option>
+														<% for (let i = 0; i < 120; i++) { %>
+														<option value="<%= i; %>"></option>
+														<% } %>
+													</select>
 												</div>
+											</div>
 										</div>
 										<div class="row uniform">
 											<div class="6u 12u(xsmall)"><input type="text" name="city" id="city" value="" placeholder="HomeTown" /></div>
