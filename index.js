@@ -108,6 +108,20 @@ app.post('/confirmation', function(request, response) {
 	});
 });
 
+app.post('/messages', function(request, response) {
+	messageHandler(request, 'post').then((result) => {
+		if (request.session.online) {
+			response.json({"success": "true"});
+			console.log('success');
+		} else {
+			response.json('error');
+			console.log('error');
+		}
+		
+		response.end();
+	});
+});
+
 app.get('/messages', function(request, response) {
 	messageHandler(request, 'get').then((result) => {
 		if (request.session.online) {
