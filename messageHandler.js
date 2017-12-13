@@ -12,7 +12,7 @@ module.exports = (request, action) => {
             var user_id;
 
             for (let i = 0; i < message.length; i++) {
-                if (message[i] == "'") {
+                if (message[i] === "'") {
                     message.slice(0, i) + "'" + message.slice(i);
                     console.log('slicing' + i);
                 }
