@@ -44,32 +44,28 @@
 
 						<!-- One -->
 							<section id="one">
-								<img src="../../../images/logo.png" style="display: block; margin: 0 auto; height: 500px; width: 225px">
+								<img src="../../../images/logo.png" style="display: block; margin: 0 auto; height: 150px; width: 500px">
 								<div class="container">
 									<header class="major">
 										<h2>Edit Profile</h2>
 										<p>Make the adjustments, then click <em>Submit</em> to save.</p>
-									<form method="post" action="./confirmation.ejs?action=update">
+									<form method="post" action="/confirmation" onsubmit="validateForm()">
 										<div class="row uniform">
 											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" value="" placeholder="Full Name" autofocus /></div>
 											<div class="6u 12u(xsmall)">
 												<div class="select-wrapper">
 													<select name="age" id="age">
-														<option value="0"></option>
+														<option value="0">- Select Age -</option>
 														<% for (let i = 0; i < 120; i++) { %>
-														<option value="<%= i; %>"></option>
+														<option value="<%= i %>"><%= i %></option>
 														<% } %>
 													</select>
 												</div>
 											</div>
 										</div>
-										<div class="row uniform">
-											<div class="6u 12u(xsmall)"><input type="text" name="city" id="city" value="" placeholder="HomeTown" /></div>
-											<div class="6u 12u(xsmall)"><input type="text" name="state" id="state" value="" placeholder="State" /></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><input type="email" name="email" id="email" value="" placeholder="Email" /></div>
-										</div>
+										<div class="12u"><input type="email" name="email" id="email" value="" placeholder="Email" /></div>
+										<div class="12u"><input type="password" name="password" id="password" placeholder="Password" min="8" required /></div>
+										<div class="12u"><input type="password" name="password2" id="password2" placeholder="Verify Password" min="8" required /></div>
 										<div class="row uniform">
 											<div class="12u">
 												<ul class="actions">
