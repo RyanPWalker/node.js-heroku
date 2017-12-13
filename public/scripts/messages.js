@@ -5,7 +5,7 @@ function postMessage() {
       message: message
     };
   
-    $.post("/goodturn", params, function(result) {
+    $.post("/messages", params, function(result) {
       if (result && result.success) {
         $("#status").html("<p style='color:green'>Post successfully sent.</p>");
       } else {
