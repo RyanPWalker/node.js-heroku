@@ -27,7 +27,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({ secret: 'this-is-a-secret-token', resave: false, saveUninitialized: true, cookie: { maxAge: 60000 }}));
 app.use(logRequest);
-app.use(storeLocation);
+//app.use(storeLocation);
 
 // views is directory for all template files
 app.set('views', path.join(__dirname, '/views'));
@@ -92,6 +92,10 @@ app.get('/createprofile', function(request, response) {
 
 app.get('/settings', function(request, response) {
 	response.render('pages/settings');
+});
+
+app.get('/games', function(request, response) {
+	response.render('pages/games/');
 });
 
 app.post('/confirmation', function(request, response) {
@@ -189,8 +193,8 @@ function logRequest(request, response, next) {
 }
 
 function storeLocation(request, response, next) {
-	console.log("Latitude: " + request.body.latitude);
-	console.log("Longitude: " + request.body.longitude);
+	//console.log("Latitude: " + request.body.latitude);
+	//console.log("Longitude: " + request.body.longitude);
 	next();
 }
 
