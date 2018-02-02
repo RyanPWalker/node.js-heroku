@@ -33,9 +33,17 @@
   </div>
 </div>
 
+<audio id="ravemusic" controls>
+   <source src="/audio/Yeah Yeah Yeahs - Heads Will Roll (JVH-C Remix).mp3"
+           type='audio/mp3'>
+   <!-- The next line will only be executed if the browser doesn't support the <audio> tag-->
+   <p>Your user agent does not support the HTML5 Audio element.</p>
+  </audio>
+
 
 <script>
   $(() => { 
+    $("#hometab").addClass("active");
     // divname must be in quotes
     // window width - 75 because it goes past the screen a bit
     moveTurtle($(window).width() - 75, 'turtle1', 2);
@@ -43,7 +51,8 @@
     moveTurtle($(window).width() - 75, 'turtle3', 10);
     moveTurtle($(window).width() - 75, 'turtle4', 20);
     moveTurtle($(window).width() - 75, 'turtle5', 50);
-    var audio = new Audio('/audio/Yeah Yeah Yeahs - Heads Will Roll (JVH-C Remix).mp3');
+    var audio = document.getElementById("ravemusic"); 
+    //audio.src = "song.mp4";
     audio.play();
   })
 </script>
