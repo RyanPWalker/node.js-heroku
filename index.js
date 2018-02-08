@@ -38,6 +38,18 @@ app.get('/', function(request, response) {
 	response.render('pages/index');
 });
 
+app.get('/about', function(request, response) {
+	response.render('pages/about');
+});
+
+app.get('/ryan', function(request, response) {
+	response.render('pages/ryan');
+});
+
+app.get('/fhe', function(request, response) {
+	response.render('pages/fhe');
+});
+
 app.post('/login', (request, response) => {
 
 	loginHandler(request).then((result) => {
@@ -138,10 +150,6 @@ app.get('/messages', function(request, response) {
 		
 		response.end();
 	});
-});
-
-app.get('/test', function(request, response) {
-	response.render('pages/test');
 });
 
 app.get('/getServerTime', verifyLogin, function(request, response) {

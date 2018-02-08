@@ -1,18 +1,17 @@
-Pear Up by Ryan Walker
-Ryan Walker | RyanPrestonWalker@gmail.com
+RyanWalker.party by Ryan Walker | RyanPrestonWalker@gmail.com
 
 
-Sign in, create a profile, meet new people in your vecinity!
-Made with PHP, PostgreSQL, JavaScript, HTML5, and CSS3.
+GoodTurn - Sign in, create a profile, post, and help people in your vecinity!
+Made from scrath with Node.js, PostgreSQL, JavaScript, HTML5, and CSS3.
 
 
 Credits:
 
-	Framework:
+	GoodTurn Framework:
 		Read Only (html5up.net)
 
 	Demo Images:
-		Unsplash (unsplash.com)
+		Internet
 
 	Icons:
 		Font Awesome (fortawesome.github.com/Font-Awesome)

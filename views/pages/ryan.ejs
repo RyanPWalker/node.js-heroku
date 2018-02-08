@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+  <script src=""></script>
+  <style type="text/css">
+    .hide-bullets {
+      list-style:none;
+      margin-left: -40px;
+      margin-top:20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+  <div class="container">
+    <div id="main_area">
+      <h1>Hi, my name is Ryan and I'm the developer of this site.</h1>
+    </div>
+  </div>
+
+
+<script>
+  $(() => {
+
+    $("#ryantab").addClass("active");
+
+  })
+</script>
+
+</body>
+</html>
