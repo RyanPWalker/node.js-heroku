@@ -50,6 +50,10 @@ app.get('/fhe', function(request, response) {
 	response.render('pages/fhe');
 });
 
+app.get('/dance', function(request, response) {
+	response.render('pages/danceFloor');
+});
+
 app.post('/login', (request, response) => {
 
 	loginHandler(request).then((result) => {
