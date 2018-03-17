@@ -54,6 +54,28 @@ app.get('/dance', function(request, response) {
 	response.render('pages/danceFloor');
 });
 
+app.get('/games', function(request, response) {
+	response.render('pages/games/');
+});
+
+app.get('/games/dots', function(request, response) {
+	response.render('pages/games/dots');
+});
+
+app.get('/postal', function(request, response) {
+	response.render('pages/postal');
+});
+
+app.get('/movies', function(request, response) {
+	response.render('pages/movies');
+});
+
+app.get("/wmc", (request, response) => {
+  response.status(301).redirect("https://www.workingmomsconnection.org")
+})
+
+// Good turn stuff :
+
 app.post('/login', (request, response) => {
 
 	loginHandler(request).then((result) => {
@@ -108,14 +130,6 @@ app.get('/createprofile', function(request, response) {
 
 app.get('/settings', function(request, response) {
 	response.render('pages/settings');
-});
-
-app.get('/games', function(request, response) {
-	response.render('pages/games/');
-});
-
-app.get('/games/dots', function(request, response) {
-	response.render('pages/games/dots');
 });
 
 app.post('/confirmation', function(request, response) {
@@ -173,28 +187,7 @@ app.get('/getServerTime', verifyLogin, function(request, response) {
 	}
 });
 
-app.get('/postal', function(request, response) {
-	response.render('pages/postal');
-});
-
-app.post('/postalprice', function(request, response) {
-	response.render('pages/postalprice', {weight: request.body.weight, type: request.body.type, answer: request.body.answer});
-});
-
-app.get('/movies', function(request, response) {
-	response.render('pages/movies');
-});
-
-app.get('/db', function (request, response) {
-	client.query('SELECT * FROM users LIMIT 50', (err, result) => {
-		if (err)
-			{ console.error(err); response.json("Error " + err); }
-		else
-			{ response.json(result.rows); }
-		client.end();
-	});
-});
-
+// Easter Egg
 app.get('/cool', function(request, response) {
 	response.send(cool());
 });
@@ -208,11 +201,11 @@ function logRequest(request, response, next) {
 	next();
 }
 
-function storeLocation(request, response, next) {
-	//console.log("Latitude: " + request.body.latitude);
-	//console.log("Longitude: " + request.body.longitude);
-	next();
-}
+// function storeLocation(request, response, next) {
+// 	//console.log("Latitude: " + request.body.latitude);
+// 	//console.log("Longitude: " + request.body.longitude);
+// 	next();
+// }
 
 function verifyLogin(request, response, next) {
 	if (request.session.email) {

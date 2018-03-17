@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+
 * {
   box-sizing: inherit;
   transition-property: all;
@@ -24,11 +25,25 @@
 h1 {
   font-size: 100px;
   opacity: 0;
+  -webkit-animation: mymove 5s; /* Chrome, Safari, Opera */
+  animation: mymove 5s;
 }
 
 h2 {
   font-size: 50px;
   opacity: 0;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+  0% { text-shadow: 0 0 150px grey; }
+  100% {text-shadow: 0 0 0 grey;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+  0% { text-shadow: 0 0 150px grey; }
+  100% {text-shadow: 0 0 0 grey;}
 }
 
 @keyframes move-twink-back {
