@@ -114,6 +114,10 @@ app.get('/games', function(request, response) {
 	response.render('pages/games/');
 });
 
+app.get('/games/dots', function(request, response) {
+	response.render('pages/games/dots');
+});
+
 app.post('/confirmation', function(request, response) {
 	createhandler(request).then((result) => {
 		email  = request.session.email;
