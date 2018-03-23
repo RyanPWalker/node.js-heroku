@@ -25,8 +25,8 @@
 h1 {
   font-size: 100px;
   opacity: 0;
-  -webkit-animation: mymove 5s; /* Chrome, Safari, Opera */
-  animation: mymove 5s;
+  -webkit-animation: mymove 4s; /* Chrome, Safari, Opera */
+  animation: mymove 4s;
 }
 
 h2 {
