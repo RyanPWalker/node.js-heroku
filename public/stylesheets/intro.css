@@ -1,32 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 
-* {
-  box-sizing: inherit;
-  transition-property: all;
-  transition-duration: .6s;
-  transition-timing-function: ease;
+body {
+  background-color: #5c94fc;
 }
 
-.main {
-  /*color: white;*/
-  position: absolute;
-  text-align: center;
-  margin: auto;
-  top: 25%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
+.container {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  box-sizing: border-box;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  top: 25%;
+  width: 100%;
 }
 
 h1 {
   font-size: 100px;
   opacity: 0;
-  -webkit-animation: mymove 4s; /* Chrome, Safari, Opera */
-  animation: mymove 4s;
 }
 
 h2 {
@@ -34,182 +34,52 @@ h2 {
   opacity: 0;
 }
 
-/* Chrome, Safari, Opera */
-@-webkit-keyframes mymove {
-  0% { text-shadow: 0 0 150px grey; }
-  100% {text-shadow: 0 0 0 grey;}
-}
-
-/* Standard syntax */
-@keyframes mymove {
-  0% { text-shadow: 0 0 150px grey; }
-  100% {text-shadow: 0 0 0 grey;}
-}
-
-@keyframes move-twink-back {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -10000px 5000px;
-  }
-}
-
-@-webkit-keyframes move-twink-back {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -10000px 5000px;
-  }
-}
-
-@-moz-keyframes move-twink-back {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -10000px 5000px;
-  }
-}
-
-@-ms-keyframes move-twink-back {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -10000px 5000px;
-  }
-}
-
-@keyframes move-clouds-back {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 10000px 0;
-  }
-}
-
-@-webkit-keyframes move-clouds-back {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 10000px 0;
-  }
-}
-
-@-moz-keyframes move-clouds-back {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 10000px 0;
-  }
-}
-
-@-ms-keyframes move-clouds-back {
-  from {
-    background-position: 0;
-  }
-  to {
-    background-position: 10000px 0;
-  }
-}
-
-.stars,
-.twinkling,
-.clouds {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.stars {
-  background: #000 url(http://sylvaingarnot.fr/media/stars.png) repeat top center;
-  z-index: 0;
-}
-
-.twinkling {
-  background: transparent url(http://sylvaingarnot.fr/media/twinkling.png) repeat top center;
+img {
+  margin: 8px;
+  width: 600px;
   z-index: 1;
-  -moz-animation: move-twink-back 200s linear infinite;
-  -ms-animation: move-twink-back 200s linear infinite;
-  -o-animation: move-twink-back 200s linear infinite;
-  -webkit-animation: move-twink-back 200s linear infinite;
-  animation: move-twink-back 200s linear infinite;
 }
 
-.clouds {
-  background: transparent url(http://sylvaingarnot.fr/media/clouds.png) repeat top center;
-  z-index: 2;
-  -moz-animation: move-clouds-back 200s linear infinite;
-  -ms-animation: move-clouds-back 200s linear infinite;
-  -o-animation: move-clouds-back 200s linear infinite;
-  -webkit-animation: move-clouds-back 200s linear infinite;
-  animation: move-clouds-back 200s linear infinite;
-}
-
-.btn {
-  opacity: 0;
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  font-size:16px;
-  font-weight: 400;
-  line-height: 45px;
-  margin: 0 auto 2em;
-  max-width: 160px; 
+.qblock {
   position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  vertical-align: middle;
-  width: 100%; 
-  
-  @media(min-width: 400px) {
-    display: inline-block;
-    margin-right: 2.5em;
-
-    &:nth-of-type(even) {
-      margin-right: 0;
-    }
-  }
-  
-  @media(min-width: 600px) {
-
-    &:nth-of-type(even) {
-      margin-right: 2.5em;
-    }
-    
-    &:nth-of-type(5) {
-      margin-right: 0;
-    }
-    
-  }
-  
-  &:hover { text-decoration: none; }
-  
+  transition: all 200ms;
+  width: 60px;
+  z-index: 2;
 }
-.btn-5 {
-  border: 0 solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-  outline: 1px solid;
-  outline-color: rgba(255, 255, 255, .5);
-  outline-offset: 0px;
-  text-shadow: none;
-  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-} 
+.qblock:hover {
+  cursor: pointer;
+  width: 65px;
+}
 
-.btn-5:hover {
-  border: 1px solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-  outline-color: rgba(255, 255, 255, 0);
-  outline-offset: 15px;
-  text-shadow: 1px 1px 2px #427388; 
+.click {
+  bottom: 5px;
+  margin: 0;
+  position: relative;
+  right: 50px;
+  width: 40px;
+}
+
+.coin {
+  bottom: 60px;
+  position: absolute;
+  margin: 0;
+  width: 40px;
+}
+
+.sliding-background {
+  animation: slide 60s linear infinite;
+  background: url("../images/marioLvl1.gif") repeat-x;
+  bottom: 0;
+  height: 224px;
+  position: absolute;
+  width: 5076px;
+}
+
+@keyframes slide{
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(-1692px, 0, 0);
+  }
 }

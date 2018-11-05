@@ -9,7 +9,7 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else { 
-        alert("Geolocation is not supported by this browser.");
+        $("#status").html("<strong style='color:red'>Geolocation is not supported by this browser.</strong>");
     }
 }
 
@@ -21,16 +21,16 @@ function showPosition(position) {
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            alert("User denied the request for Geolocation.")
+            $("#status").html("<strong style='color:red'>Geolocation was blocked by your browser</strong>");
             break;
         case error.POSITION_UNAVAILABLE:
-            alert("Location information is unavailable.")
+            $("#status").html("<strong style='color:red'>Location information is unavailable.</strong>");
             break;
         case error.TIMEOUT:
-            alert("The request to get user location timed out.")
+            $("#status").html("<strong style='color:red'>The request to get user location timed out.</strong>");
             break;
         case error.UNKNOWN_ERROR:
-            alert("An unknown error occurred.")
+            $("#status").html("<strong style='color:red'>An unknown error occurred.</strong>");
             break;
     }
 }

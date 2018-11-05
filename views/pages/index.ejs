@@ -5,9 +5,15 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/intro.css" />
     <script type="text/javascript">
       $(() => {
-        $('h1').animate({'opacity':1}, 4000, () => {
-          $('h2').animate({'opacity':1}, 4000, () => {
-            $('.btn').animate({'opacity':1}, 3000);
+        new Audio('./audio/Super Mario Bros. medley.mp3').play();
+        let coinSound = new Audio('./audio/Mario-coin-sound.mp3');
+        $( ".qblock" ).click(function() {
+          coinSound.play();
+          $( ".coin" ).animate({
+            bottom: "+=85"
+          }, 600, function() {
+            // Animation complete.
+            location.href = "/ryan";
           });
         });
       })
@@ -15,14 +21,19 @@
   </head>
 <body>
 
-  <div class="stars"></div>
-  <div class="twinkling"></div>
-  <div class="clouds"></div>
-
-  <div class="main">
-    <h1>Ryan Walker</h1>
-    <h2>Full Stack Developer</h2>
-    <a href="/ryan" class="btn btn-5">Enter</a>
+  <div class="container">
+    <div class="title">
+      <img src="/images/name.png" />
+      <img src="/images/name2.png" />
+      <img src="/images/coin.gif" class="coin" />
+      <a ><!-- href="/ryan" -->
+        <img src="/images/qblock.gif" class="qblock" />
+      </a>
+      <img src="/images/click.png" class="click" />
+      <!-- f<img src="/images/greenpipe.png" class="greenpipe" /> -->
+    </div>
+    <div class="sliding-background"></div>
+    <!-- <iframe src='./audio/Super Mario Bros. medley.mp3' allow="autoplay" id="audio" style="display:none"></iframe> -->
   </div>
 
 </body>
