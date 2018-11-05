@@ -3,6 +3,9 @@
   "version": "0.2.6",
   "description": "My full stack website",
   "main": "index.js",
+  "engines": {
+    "node": "6.14.4"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "node test.js"
