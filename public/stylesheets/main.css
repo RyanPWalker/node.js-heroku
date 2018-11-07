@@ -1,6 +1,8 @@
 body {
   background-color: #5c94fc;
   color: #222222;
+  height: 100vh;
+  width: 100vw;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -20,4 +22,43 @@ h1,h2,h3,h4,h5,h6 {
 
 #abouttab {
   margin: 0;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -100px;
+}
+
+.pipes {
+  display: flex;
+  justify-content: center;
+}
+.pipes > img {
+  transform: rotate(180deg);
+  height: 200px;
+  margin: 5px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.menu > a {
+  margin: 8px;
+}
+
+.greenpipe {
+}
+
+.redpipe {
+}
+
+.yellowpipe {
+}
+
+.bluepipe {
 }

@@ -36,7 +36,8 @@ h2 {
 
 img {
   margin: 8px;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   z-index: 1;
 }
 
@@ -49,6 +50,10 @@ img {
 .qblock:hover {
   cursor: pointer;
   width: 65px;
+}
+
+.qblock:active {
+  bottom: 8px;
 }
 
 .click {

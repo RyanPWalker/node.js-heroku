@@ -1,12 +1,16 @@
-
 .container {
     height: 100%;
     width: 100%;
 }
 
+h1 {
+    max-width: 75%;
+}
+
 .title {
     align-items: center;
     box-sizing: border-box;
+    color: red;
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
@@ -18,30 +22,12 @@
     width: 100%;
 }
 
-img {
-    position: absolute;
+.title:nth-child(2n+1) {
+    color: blue;
 }
 
-.greenpipe {
-    width: 40px;
-    bottom: 0px;
-    transform: translateX(48vw);
-}
-
-.redpipe {
-    width: 40px;
-    top: 20px;
-    transform: translateX(48vw) rotate(180deg);
-}
-
-.yellowpipe {
+.star {
     position: relative;
-    float: right;
-    transform: translateX(-65px) rotate(270deg);
-    width: 40px;
-}
-
-.bluepipe {
-    width: 40px;
-    transform: translateX(65px) rotate(90deg);
+    top: -1px;
+    width: 18px;
 }
