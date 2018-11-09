@@ -47,6 +47,7 @@ img {
   width: 60px;
   z-index: 2;
 }
+
 .qblock:hover {
   cursor: pointer;
   width: 65px;

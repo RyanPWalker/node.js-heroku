@@ -2,13 +2,17 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
-  <script src=""></script>
-  <style type="text/css">
-    .hide-bullets {
-      list-style:none;
-      margin-left: -40px;
-      margin-top:20px;
-    }
+  <link rel="stylesheet" type="text/css" href="/stylesheets/ryan.css" />
+  <script>
+    $(() => {
+      var message = "Hi, my name is Ryan and I'm the developer of this site.";
+      var colors = new Array("#ea3738","green","#0033ff","#fedc00");
+      var colorHtml = '';
+      for (var i = 0; i < message.length; i++)
+        colorHtml += "<span style=\"color:" + colors[(i % colors.length)] + ";\">" + message[i] + "</span>";
+      document.getElementById('colorfulGoodness').innerHTML = colorHtml;
+    })
+  </script>
   </style>
 </head>
 
@@ -17,8 +21,11 @@
   <% include ../partials/nav.ejs %>
 
   <div class="container">
-    <div id="main_area">
-      <h1>This site is intended for display of my projects and to just have fun.  No copyright infringement intended.  No party poopers allowed.</h1>
+    <div class="title">
+      <h1 id="colorfulGoodness"></h1>
+      <h1>Feel free to look around!</h1>
+      <a type="button" class="btn btn-lg btn-default" href="https://github.com/RyanPWalker"><img src="/images/star.png" class="star" /><span> Github</span></a>
+      <p>This site is intended for display of my projects and to just have fun.  No copyright infringement intended.  No party poopers allowed.</p>
     </div>
   </div>
 

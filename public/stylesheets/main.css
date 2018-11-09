@@ -9,9 +9,25 @@ h1,h2,h3,h4,h5,h6 {
   color: #222222;
 }
 
+a {
+  text-decoration: none;
+}
+
 .btn {
   background-color: #a3a3a3;
-  margin: 20px 10px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: #333;
+  font-size: 18px;
+  line-height: 1.3333333;
+  margin: 20px 10px;
+  padding: 10px 16px;
+}
+
+.btn:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
 }
 
 #box {
@@ -49,6 +65,22 @@ h1,h2,h3,h4,h5,h6 {
 
 .menu > a {
   margin: 8px;
+}
+
+.menu>a:nth-child(1) {
+  color: green;
+}
+
+.menu>a:nth-child(2) {
+  color: #ea3738;
+}
+
+.menu>a:nth-child(3) {
+  color: #0033ff;
+}
+
+.menu>a:nth-child(4) {
+  color: #fedc00;
 }
 
 .greenpipe {
